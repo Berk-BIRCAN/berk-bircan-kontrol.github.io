@@ -16,19 +16,20 @@ sys_total = series(sys_motor, sys_mech);  % veya
 
 
 ______
+impulse grafiği kodu:
 
 impulse(sys_total);
 title('Genel Sistem Darbe Cevabı - impulse()');
 grid on;
 ______
+step grafiği kodu:
 
 step(sys_total);
 title('Genel Sistem Birim Basamak Cevabı - step()');
 grid on;
 
 _____
-
-yukardaki sistem tanımlamasını sonradan sildiğim için tf yi bir daha tanımladığım kod:
+yukardaki sistem tanımlamasını sonradan sildiğim için tf yi bir daha tanımladığım ve Durum uzayı modelinin matris değerlerini veren kod:
 
 
 % Transfer fonksiyonunun tanımı
@@ -44,11 +45,14 @@ C = sys_ss.C
 D = sys_ss.D
 
 ____
+matrisin öz değer kodu:
+
 
 eig(A)
 
 
 ____
+durum uzayı modeli sys için transmisyon sıfırlarını hesaplama:
 
 sys = ss(A, B, C, D);
 tzero(sys)
